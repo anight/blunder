@@ -1,8 +1,9 @@
 package tuner
 
 import (
-	"blunder/engine"
 	"testing"
+
+	"github.com/anight/blunder/engine"
 )
 
 func init() {
