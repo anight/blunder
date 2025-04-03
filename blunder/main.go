@@ -1,7 +1,7 @@
 package main
 
 import (
-	"blunder/engine"
+	"github.com/anight/blunder/engine"
 )
 
 func init() {

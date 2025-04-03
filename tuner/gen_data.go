@@ -1,7 +1,6 @@
 package tuner
 
 import (
-	"blunder/engine"
 	"fmt"
 	"log"
 	"math"
@@ -9,6 +8,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/anight/blunder/engine"
 )
 
 // gen_data.go generates training data for the texel tuner from the PGNs of games played.

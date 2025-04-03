@@ -1,4 +1,4 @@
-module blunder
+module github.com/anight/blunder
 
 go 1.18
 

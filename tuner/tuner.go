@@ -3,12 +3,13 @@ package tuner
 // tuner.go is a texel tuning implementation for Blunder.
 
 import (
-	"blunder/engine"
 	"bufio"
 	"fmt"
 	"math"
 	"os"
 	"strings"
+
+	"github.com/anight/blunder/engine"
 )
 
 const (
