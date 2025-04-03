@@ -119,7 +119,7 @@ func ConvertSANToLAN(pos *Position, moveStr string) Move {
 		}
 	}
 
-	moves := genMoves(pos)
+	moves := GeneratePseudoLegalMoves(pos)
 	matchingMove := NullMove
 
 	for i := 0; i < int(moves.Count); i++ {
@@ -186,4 +186,17 @@ func ConvertSANToLAN(pos *Position, moveStr string) Move {
 	}
 
 	return matchingMove
+}
+
+// Return a slice of all legal moves in the current position.
+func LegalMoves(pos *Position) (moves []string) {
+	moveList := GeneratePseudoLegalMoves(pos)
+	for i := uint8(0); i < moveList.Count; i++ {
+		move := moveList.Moves[i]
+		if pos.DoMove(move) {
+			moves = append(moves, move.String())
+		}
+		pos.UndoMove(move)
+	}
+	return moves
 }

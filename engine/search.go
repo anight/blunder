@@ -439,7 +439,7 @@ func (search *Search) negamax(depth int8, ply uint8, alpha, beta int16, pvLine *
 		}
 	}
 
-	moves := genMoves(&search.Pos)
+	moves := GeneratePseudoLegalMoves(&search.Pos)
 	search.scoreMoves(&moves, ttMove, ply, prevMove)
 
 	legalMoves := 0
@@ -679,13 +679,7 @@ func (search *Search) Qsearch(alpha, beta int16, maxPly uint8, pvLine *PVLine, p
 		alpha = bestScore
 	}
 
-	moves := MoveList{}
-	if inCheck {
-		moves = genMoves(&search.Pos)
-	} else {
-		moves = genCapturesAndQueenPromotions(&search.Pos)
-	}
-
+	moves := GeneratePseudoLegalMoves(&search.Pos)
 	search.scoreMoves(&moves, NullMove, maxPly, NullMove)
 	childPVLine := PVLine{}
 

@@ -12,7 +12,7 @@ const (
 )
 
 // Generate all pseduo-legal moves for a given position.
-func genMoves(pos *Position) (moves MoveList) {
+func GeneratePseudoLegalMoves(pos *Position) (moves MoveList) {
 	// Go through each piece type, and each piece for that type,
 	// and generate the moves for that piece.
 
@@ -303,7 +303,7 @@ func DividePerft(pos *Position, depth, divdeAt uint8, TT *TransTable[PerftEntry]
 	}
 
 	// otherwise genrate the legal moves we have...
-	moves := genMoves(pos)
+	moves := GeneratePseudoLegalMoves(pos)
 	nodes := uint64(0)
 
 	// And make every move, recursively calling perft to get the number of subnodes
@@ -345,7 +345,7 @@ func Perft(pos *Position, depth uint8, TT *TransTable[PerftEntry]) uint64 {
 	}
 
 	// otherwise genrate the legal moves we have...
-	moves := genMoves(pos)
+	moves := GeneratePseudoLegalMoves(pos)
 	nodes := uint64(0)
 
 	// And make every move, recursively calling perft to get the number of subnodes
